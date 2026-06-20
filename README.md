@@ -75,6 +75,17 @@ python3 hooks/test_validate_commit_msg.py
 
 The hook reads a Claude Code hook JSON payload on stdin and exits `0` (allow) or `2` (block, with guidance on stderr).
 
+## Security & privacy
+
+A `PreToolUse(Bash)` hook receives the **full text of every Bash command** Claude runs while the plugin is enabled — which can include secrets (e.g. `export TOKEN=...`). It is worth knowing exactly what this hook does with that input:
+
+- It **reads** the command from stdin, tokenizes it with `shlex`, and inspects only `git commit` invocations.
+- It does **not** execute the command, shell out, `eval`, or spawn subprocesses — it only decides allow (exit 0) vs. block (exit 2).
+- It does **not** log, store, or transmit the command anywhere. No file writes, no network access.
+- On any parse error it **fails open** (allows the command); it is a commit-message linter, not a security control.
+
+The entire implementation is a single auditable file: [`hooks/validate_commit_msg.py`](./hooks/validate_commit_msg.py). You are encouraged to read it before enabling the plugin — as you should with any tool that runs on your machine.
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).
