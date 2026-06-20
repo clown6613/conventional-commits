@@ -1,5 +1,7 @@
 # conventional-commits
 
+[![test](https://github.com/clown6613/conventional-commits/actions/workflows/test.yml/badge.svg)](https://github.com/clown6613/conventional-commits/actions/workflows/test.yml)
+
 A Claude Code plugin that **enforces [Conventional Commits](https://www.conventionalcommits.org/)** at the agent layer.
 
 A `PreToolUse(Bash)` hook inspects every `git commit` command *before it runs*. If the commit subject doesn't match `<type>[optional scope][!]: <description>`, the hook blocks the command and feeds the reason back to Claude, which then rewrites the message and retries — automatically.
