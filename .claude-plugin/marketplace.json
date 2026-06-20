@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "conventional-commits",
+  "version": "0.1.0",
+  "description": "Enforce Conventional Commits in Claude Code via a PreToolUse hook that cannot be bypassed with --no-verify",
+  "owner": {
+    "name": "clown6613",
+    "email": "s23410@cyberagent.email"
+  },
+  "plugins": [
+    {
+      "name": "conventional-commits",
+      "description": "Validate git commit messages against the Conventional Commits spec before the command runs; blocks and self-corrects non-conforming messages",
+      "version": "0.1.0",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

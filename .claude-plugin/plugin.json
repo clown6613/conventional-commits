@@ -1,0 +1,17 @@
+{
+  "name": "conventional-commits",
+  "version": "0.1.0",
+  "description": "Enforce Conventional Commits at the agent layer. A PreToolUse hook validates git commit messages before the command runs and blocks non-conforming messages, feeding actionable guidance back to Claude so it self-corrects. Cannot be bypassed with --no-verify.",
+  "author": {
+    "name": "clown6613",
+    "email": "s23410@cyberagent.email"
+  },
+  "homepage": "https://github.com/clown6613/conventional-commits",
+  "keywords": [
+    "git",
+    "commit",
+    "conventional-commits",
+    "hooks",
+    "linting"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "description": "Conventional Commits enforcement — validates git commit messages in a PreToolUse(Bash) hook before the command runs",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/validate_commit_msg.py\""
+          }
+        ]
+      }
+    ]
+  }
+}
